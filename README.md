@@ -4,7 +4,7 @@
 > <p><b>*Step-by-step tutorial, starting from the go environment setup, going trough the first line of code, diving into packages and ending up with complex examples, commented and including unit-testing, to let the reader introduce him/herself to the awesome go programming language ecosystem.*</b></p>
 
 
-|Current environment|
+|Current environment|                |
 | :-------------    | :------------- |
 |**Testing OS**     | *Linux*        |
 |**Distribution**   | *Fedora 25*    |
@@ -151,3 +151,35 @@ They can be installed using dnf or also downloaded using the go get command
 >
 > using go get:
 > * `go get github.com/nsf/gocode`
+
+## STEP THREE ##
+#### Choose your IDE/Editor and install it ####
+
+There are several options to develop go code in a fast and productive way; depending on the programmer attitude and habits, a go program can be written in your favorite editor or also using an IDE. The following list includes some of the most common options.
+
+
+## APPENDIX A ##
+#### Useful links ####
+
+The following list has been written to give the programmer a fast reference for the basic go official resources available on the internet.
+
+* http://golang.org/
+  + The go programming language official site; there're important resources there such as the current state of the compiler, many tutorials from basic to advanced level and other useful informations.
+* https://github.com/golang/go/wiki
+  + The github go wiki. Any additional comment is not required, just check it !
+* https://plus.google.com/+golang/posts
+  + This link ...
+* http://blog.golang.org/
+  + This link ...
+* http://www.youtube.com/user/gocoding
+  + for those who prefere to start using go watching some videos, there they can find 'em out !
+* http://dave.cheney.net/
+  + This link ...
+* http://gophervids.appspot.com/
+  + This link ...
+
+Some videos a new-to-go programmer should watch at, they're both related to go concurrency patterns:
+* http://www.youtube.com/watch?v=QDDwwePbDtw
+  + This video ...
+* http://www.youtube.com/watch?v=f6kdp27TYZs
+  + This video ...
