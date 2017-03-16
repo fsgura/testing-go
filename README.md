@@ -1,7 +1,11 @@
-# TESTING-GO
+# TESTING-GO #
 
 ##### *A repository just to start a set of tests, using a base default go installation on Linux* #####
 > <p><b>*Step-by-step tutorial, starting from the go environment setup, going trough the first line of code, diving into packages and ending up with complex examples, commented and including unit-testing, to let the reader introduce him/herself to the awesome go programming language ecosystem.*</b></p>
+
+### TABLE OF CONTENTS ###
+* Index
+  + [APPENDIX A][35586f4b]
 
 
 |Current environment|                |
@@ -207,14 +211,19 @@ There are several options to develop go code in a fast and productive way; depen
 <b>*Last considerations*</b>: Also Eclipse, NetBeans and JetBrains Idea have some additional plugins to integrate with the go development, although none of them has the full functionality to use debuggers and profiling tools. Feel free to test those integrations, especially if your preference is to develop using one of those IDE tools, but better to start integrating with more advanced tools, like the ones in the previous list.
 
 ## CHAPTER ONE ##
-#### Writing our first go programs ####
-
+#### Writing our first go program ####
+<br />
 **Introduction**
+
 Before start coding, we have to let our impatience wait a little bit more, because the go folder structures when developing is a point that has to be considered to avoid issues later on, especially when writing libraries, packages and additional modular components that will be required in our projects. Also the way of importing and using third-party libraries and modules requires the knowledge of this folder structure.
 
 Let's start underlining the git repository that will be hosting our code. It's not mandatory to let our code be public, but generally the next guidelines are self-explanatory. Spend some minutes to learn the next points, and all of these rules will be a fundamental basis for your go development in the next future.
 
+
+**Setting path and code**
+
 For our case-study we will use a github account as example:
+
 * let's suppose you have an account named "mygithubuser" (but better if you change it with something existing on the git server domain of your choice)
 *
   + our reference folder will be github.com/mygithubuser
@@ -226,14 +235,87 @@ The previously created folder will be our base path for all of our go works, we 
 Now we'll going to write our **first_program.go**
 
 The source code is available in the folder first_program of this repo.
-To recall our example folder, we will create our local program basepath issuing:
+To recall our example folder, we will create our local program base-path issuing:
 
-`mkdir -p $GOPATH/src/github.com/mygithubuser/first_program`
++ `mkdir -p $GOPATH/src/github.com/mygithubuser/first_program`
++ `cd !$`
+
+
+**Building and installing our first program**
+
+After creating the folder and changing our directory to that path, let's put the go program inside it.
+Now the go code can be built and installed.
+To check if the program build correctly, it's enough to run
+
++ `go build first_program.go`
+
+This will produce our go binary in the current folder if everything compiles correctly and the reason is that we specified our first_program.go as a main package. In the next example, when writing packages, we'll see the build command only check the code and build it without producing executables.
+We can remove the first_program binary from our current local folder and proceed to install it.
+
++ `rm -f first_program`
+
+The command
+
++ `go install first_program.go`
+
+will compile our binary executable file in $GOPATH/bin and since this folder should have been added to the local path following the configuration steps, just calling it from the command line will execute our program.
+
+#### Writing our first go module package ####
+<br />
+**Our first library**
+
+It's now time to write a package containing some functions to use it in our programs.
+For this scope, we'll create another folder in our main path.
+
++ `mkdir -p $GOPATH/src/github.com/mygithubuser/string_utils`
++ `cd !$`
+
+As usual, the file containing the source code for this example can be found in the string_utils folder of this project, so let's copy/edit reverse_string.go in the previously created directory.
+Let's check our package compiles without errors.
+
++ `go build -a -v -x reverse_string.go`
+
+If all operations perform successfully, we can now integrate our library containing the function *Reverse* from a regular program.
+
+**Using our library**
+
+Let's use the code inside the folder **using_string_utils**, specifically the program **revert_string_program.go**, building and running it. Checking the source, you can note that we're using our previously created library and the build process successfully links all the reference in one binary, saved in the $GOPATH/bin folder. In details, let's issue the following command:
+
++ `go build -a -v -x revert_string_program.go`
+
+This should successfully build our program, and the executable will be produced in the same folder.
+We can now remove the revert_string_program binary from our current local folder and proceed to install it.
+
++ `rm -f revert_string_program`
+
+To install it, let's run
+
++ `go install revert_string_program.go`
+
+This install process will produce a binary in our current $GOBIN path, but the most interesting and good surprise is that if we check our pkg library path, now the compiler installed our static library automatically !
+Check it running
+
++ `ls $GOPATH/pkg/gccgo_linux_amd64/github.com/fsgura/testing-go`
+
+If you're not compiling go using gcc-go, check the next folder instead
+
++ `ls $GOPATH/pkg/linux_amd64/github.com/fsgura/testing-go`
+
+*Note*: if you changed some folders in your current test, remember to update the previous references.
+
+**...and now ... Unit Testing? Why not ???**
+
+A brief example of unit testing, using the lightweight go bundled unit testing set of functions can be applied to our previous example. Let's see how !
 
 
 
+
+
+
+[35586f4b]: #appendix_a "Appendix A"
 ## APPENDIX A ##
 #### Useful links ####
+
 
 The following list has been written to give the programmer a fast reference for the basic go official resources available on the internet.
 
