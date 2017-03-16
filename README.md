@@ -307,6 +307,35 @@ If you're not compiling go using gcc-go, check the next folder instead
 
 A brief example of unit testing, using the lightweight go bundled unit testing set of functions can be applied to our previous example. Let's see how !
 
+First of all, the most common practice to write unit tests for go programs and packages is to do that inside the same folder of the sources to be compiled. Everyone can do that trying to find a different way, but the references could be something messy to set. We will follow the "go-way" for this example.
+
+Let's check the file in the current project folder string_utils called *reverse_string_test.go*, containing the unit tests for our package. After reading the comments and analyzing the code, let's see the test results, typing the following command in our command line:
+
++ `go test reverse_string_test.go`
+
+The output will require no additional comments if everything is configured fine.
+Something importantis the reference to the color ansi package, which is not present in the default installation of the go development environent; when adding a package, dependencies should be checked and eventually satisfied by downloading the referenced libraries.
+
+For our color library, the command to run is
+
++ `go get github.com/mgutz/ansi`
+
+*NOTE*: the unit test files follow a strict notation, which is needed by the go compiler to find them.
+
+*Every test has to be named like the program/library to test and its file-name has to end with a* **_test.go**
+
+**If you reached this point you're at the end of your first go experience chapter !!!**
+
+*You've learned:
++ how to write your first program and compile it
++ how to write your first library and compile it
++ how to write a unit test*
+
+#### *that's a big first step !!!* ####
+
+### **CONGRATULATIONS and ...** ###
+
+<center>**;-) GOing to see you again in the second chapter, don't miss that !!!**</center>
 
 
 
