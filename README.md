@@ -157,6 +157,80 @@ They can be installed using dnf or also downloaded using the go get command
 
 There are several options to develop go code in a fast and productive way; depending on the programmer attitude and habits, a go program can be written in your favorite editor or also using an IDE. The following list includes some of the most common options.
 
+* **Sublime**
+  + Link to the main site:
+    - http://www.sublimetext.com/
+  + A plugin from DisposaBoy, available on github with instructions to install it and examples
+      - https://github.com/DisposaBoy/GoSublime
+  + An interesting post from Mark Wolfe on Sublime text editor and go integration
+    - http://www.wolfe.id.au/2015/03/05/using-sublime-text-for-go-development/
+
+
+* **vi / vim**
+  + Link to the main historical site for this editor is:
+    - http://www.vim.org/download.php
+  + Installing vim and integrating with go, by Victor Farazdagi
+    - http://farazdagi.com/blog/2015/vim-as-golang-ide/
+
+
+* **Atom**
+  + Link to Atom main site:
+    - https://atom.io/
+  + A plugin for Atom integration with the go language by Joe Fitzgerald:
+    - https://github.com/joefitzgerald/go-plus
+
+
+* **LiteIDE**
+  + Link to sourceforge LiteIDE site:
+    - http://sourceforge.net/projects/liteide/files/
+  + Link to LiteIDE github:
+    - http://
+  + In APPENDIX B of this README document, there's a fast and brief HOW-TO to install LiteIDE in Fedora, having it up and running with a useful desktop icon and rapid access.
+
+
+* **Gogland preview by JetBrains**
+  + Link to JetBrains Gogland status and project:
+    - https://www.jetbrains.com/go/
+
+      *NOTE*: This IDE is still in preview, but at the current state it looks like a very good choice, especially for a developer already familiar with the JetBrains products family
+
+
+* **Emacs / Xemacs**
+  + Link to the historical emacs site on GNU org:
+    - http://www.gnu.org/software/emacs
+  + Link to Xemacs site:
+    - http://www.xemacs.org/
+  + The configuration for emacs used by Guillaume Charmes, on github:
+    - https://github.com/creack/dotfiles
+
+
+<b>*Last considerations*</b>: Also Eclipse, NetBeans and JetBrains Idea have some additional plugins to integrate with the go development, although none of them has the full functionality to use debuggers and profiling tools. Feel free to test those integrations, especially if your preference is to develop using one of those IDE tools, but better to start integrating with more advanced tools, like the ones in the previous list.
+
+## CHAPTER ONE ##
+#### Writing our first go programs ####
+
+**Introduction**
+Before start coding, we have to let our impatience wait a little bit more, because the go folder structures when developing is a point that has to be considered to avoid issues later on, especially when writing libraries, packages and additional modular components that will be required in our projects. Also the way of importing and using third-party libraries and modules requires the knowledge of this folder structure.
+
+Let's start underlining the git repository that will be hosting our code. It's not mandatory to let our code be public, but generally the next guidelines are self-explanatory. Spend some minutes to learn the next points, and all of these rules will be a fundamental basis for your go development in the next future.
+
+For our case-study we will use a github account as example:
+* let's suppose you have an account named "mygithubuser" (but better if you change it with something existing on the git server domain of your choice)
+*
+  + our reference folder will be github.com/mygithubuser
+  + *first step is to create the base folder*:
+  + `mkdir -p $GOPATH/src/github.com/mygithubuser`
+
+The previously created folder will be our base path for all of our go works, we can consider it like an initialization of our universal go local source folder.
+
+Now we'll going to write our **first_program.go**
+
+The source code is available in the folder first_program of this repo.
+To recall our example folder, we will create our local program basepath issuing:
+
+`mkdir -p $GOPATH/src/github.com/mygithubuser/first_program`
+
+
 
 ## APPENDIX A ##
 #### Useful links ####
@@ -165,21 +239,48 @@ The following list has been written to give the programmer a fast reference for 
 
 * http://golang.org/
   + The go programming language official site; there're important resources there such as the current state of the compiler, many tutorials from basic to advanced level and other useful informations.
+
+
 * https://github.com/golang/go/wiki
   + The github go wiki. Any additional comment is not required, just check it !
+
+
 * https://plus.google.com/+golang/posts
-  + This link ...
+  + A Google+ profile dedicated to go.
+
+
 * http://blog.golang.org/
-  + This link ...
+  + A blog talking about go, full of interesting stats and considerations, with also references to the basics regarding the installation process and the first steps with go development.
+
+
 * http://www.youtube.com/user/gocoding
   + for those who prefere to start using go watching some videos, there they can find 'em out !
+
+
 * http://dave.cheney.net/
-  + This link ...
+  + Dave Cheney is a go guru, talking in many worldwide events and conferences; his site includes many considerations on good practices programming in go. Could be a good reading to improve the hidden practice when programming in go.
+
+
 * http://gophervids.appspot.com/
-  + This link ...
+  + A collection of videos, conferences and webinars on go, a nice way to spend some time watching at the current state of integration with many of the most used platform, such as AWS, Google cloud and more.
 
 Some videos a new-to-go programmer should watch at, they're both related to go concurrency patterns:
+
+
 * http://www.youtube.com/watch?v=QDDwwePbDtw
-  + This video ...
+  + Advanced Go concurrency patterns
+
+
 * http://www.youtube.com/watch?v=f6kdp27TYZs
-  + This video ...
+  + Go concurrency patterns
+
+
+  ## APPENDIX B ##
+  #### LiteIDE on Fedora installation guidelines ####
+
+  To install LiteIDE on Fedora, the fastest and easiest way is to checkout to binaries, set the desktop link and start using the integrated development environment. Compiling LiteIDE from source is not a goal of the current docuemntation, although it's well documented reading the instructions on the author's site and github repository.
+
+  Download the latest LiteIDE release from:
+    - https://github.com/visualfc/liteide/releases/tag/x31
+
+  From your download location, extract the downloaded file to a folder of your choice, should be in /opt main path. A working example for the current x31 release of LiteIDE can be found in the scripts folder of this repo; just run **liteide_fedora_setup.sh** and hit the desktop icon to test your final installation.
