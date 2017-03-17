@@ -44,13 +44,23 @@ func TestReverse(t *testing.T) {
 		// more cases
 		{"check this value", "eulav siht kcehc"},
 	}
+
+	// initialization and assignment of variable containing the slice cases capacity
 	var casesSliceCapacity = cap(cases)
+	// initialization and assignment of variable containing the slice cases length
 	var casesSliceLength = len(cases)
+
+	// printing out both previous obtained variables values from the current slice
 	fmt.Printf("The current slice for \"cases\" has %d elements capacity\n", casesSliceCapacity)
 	fmt.Printf("Going to perform %d tests...\n", casesSliceLength)
+
+	// initialization of two variable counters to store test successes and failures
+	// NOTE: When initializating a variable in go, assignin a type, the initial value is
+	//       always set to 0, nil, false or "" for the most used types.
+	//	 Consider a general null initialization value when other assignment are
+	//	 explicitly declared.
 	var successCounter,failureCounter int
-	successCounter = 0
-	failureCounter = 0
+
 	// now loop for each pair of values in the cases slice
 	for _, c := range cases {
 		/* got is assigned with the value of the tested
@@ -71,6 +81,11 @@ func TestReverse(t *testing.T) {
 			successCounter++
 		}
 	}
+
+	/* This two out to console print commands are explicitly written outside
+	   the for iteration, to let the learning developer know that both will
+	   be executed BEFORE the test chain
+	 */
 	fmt.Printf("Total number of %s : %d\n", success, successCounter)
 	fmt.Printf("Total number of %s : %d\n", failure, failureCounter)
 }
