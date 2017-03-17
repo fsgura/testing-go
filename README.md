@@ -7,26 +7,73 @@
 
 ### TABLE OF CONTENTS
 
-- [TESTING-GO](#testing-go)
+- [TESTING-GO](#testing-go)  *(top of this page)*
+	- [Introduction](#introduction)
+		- [Current Ecosystem Setup](#current-ecosystem-setup)
+		- [NOTE](#note)
+		- [STEP ONE](#step-one)
+			- [Install Go and setup the OS environment](#install-go-and-setup-the-os-environment)
+			- [Note on the GORACE environment variable](#note-on-the-gorace-environment-variable)
+		- [STEP TWO](#step-two)
+			- [Install additional packages](#install-additional-packages)
+		- [STEP THREE](#step-three)
+			- [Choose your IDE/Editor and install it](#choose-your-ide-editor-and-install-it)
+	- [CHAPTER ONE - first steps in go](#chapter-one)
+		- [Writing our first go program](#writing-our-first-go-program)
+			- [Introduction](#Introduction)
+			- [Setting path and code](#setting-path-and-code)
+			- [Building and installing our first program](#building-adn-installing-our-first-program)
+		- [Writing our first go module package](#writing-our-first-go-module-package)
+			- [Our first library](#our-first-library)
+			- [Using our library](#using-our-library)
+			- [Unit Testing](#and-now-unit-testing-why-not)
+		- [You've learned](#you-ve-learned)
+	- [CHAPTER TWO - language basics](#chapter-two)
+		- [You've learned](#you-ve-learned)
+	- [CHAPTER THREE - advanced techniques and examples](#chapter-three)
+		- [You've learned](#you-ve-learned)
+	- [CHAPTER FOUR - our-first-restful-api-gateway](#chapter-four)
+		- [You've learned](#you-ve-learned)
+	- [CHAPTER FIVE - Adding the Swagger 2.0 UI to our RESTful API gateway](#chapter-five)
+		- [You've learned](#you-ve-learned)
+	- [CHAPTER SIX - Interacting with docker](#chapter-six)
+		- [You've learned](#you-ve-learned)
+	- [CHAPTER SEVEN - Interacting with kafka](#chapter-seven)
+		- [You've learned](#you-ve-learned)
+	- [CHAPTER EIGHT - Interacting with zookeeper](#chapter-eight)
+		- [You've learned](#you-ve-learned)
+	- [CHAPTER NINE - Authenticating to Auth0, from basic to advanced](#chapter-nine)
+		- [You've learned](#you-ve-learned)
+	- [CHAPTER TEN - Interacting with Cassandra](#chapter-ten)
+		- [You've learned](#you-ve-learned)
+	- [CHAPTER ELEVEN - Interacting with Elasticsearch](#chapter-eleven)
+		- [You've learned](#you-ve-learned)
   - [APPENDIX A](#appendix-a)
+  - [APPENDIX B](#appendix-b)
 
 
-|Current environment|                |
-| :-------------    | :------------- |
-|**Testing OS**     | *Linux*        |
-|**Distribution**   | *Fedora 25*    |
-|**Work-space**     | *Go 1.7*       |
-|**CPU Arch**       | *x86_64*       |
+### Introduction
 
-installed using
+#### *Current ecosystem setup*
+
+> |Current environment|                |
+  | :-------------    | :------------- |
+  |**Testing OS**     | *Linux*        |
+  |**Distribution**   | *Fedora 25*    |
+  |**Work-space**     | *Go 1.7*       |
+  |**CPU Arch**       | *x86_64*       |
+
+
+installed issuing
+
 
 ```bash
 dnf -y install golang golang-bin golang-docs golang-misc golang-shared golang-src golang-tests
 ```
 
-from the standard fedora repo
+from the standard fedora repo.
 
-Additional and useful, the package including go for gcc should be installed, since later on it will be needed from other packages and tools to correctly integrate the code when c/c++ libraries are bundled in a go project.
+<u>Additional and useful:</u> the package including go for gcc should be installed, since later on it will be needed from other packages and tools to correctly integrate the code when c/c++ libraries are bundled in a go project. In most cases the bundled go compiler will produce libraries without needing other additional products, but the performance of the compiled artifactory can be lower if gcc compiler and related environment variables optimization are not used when compiling under Unix/Linux Linux.
 
 In Fedora
 
@@ -93,9 +140,9 @@ The following table will resume the new updated environment variables values:
 |`GOEXE` |`${GOBIN}`         |
 |`GORACE`|*empty*            |
 
-The `go_profile.sh` script in the folder `scripts` contains the lines necessary to update the environment settings and should be added to `/etc/profile.d` and executed issuing `source /etc/profile.d/go_profile.sh` during the first session, while it will be automatically loaded on every next boot.
+The `go_profile.sh` script in the folder `scripts` contains the lines necessary to update the environment settings and should be added to `/etc/profile.d`, then executed issuing `source /etc/profile.d/go_profile.sh` during the first session; after the given setup, it will be automatically loaded on every next boot by the OS startup.
 
-#### Note on the GORACE environment variable ####
+#### Note on the GORACE environment variable
 Full documentation at this link:
 + https://golang.org/doc/articles/race_detector.html
 
@@ -235,8 +282,8 @@ There are several options to develop go code in a fast and productive way; depen
 
 <b>*Last considerations*</b>: Also Eclipse, NetBeans and JetBrains Idea have some additional plugins to integrate with the go development, although none of them has the full functionality to use debuggers and profiling tools. Feel free to test those integrations, especially if your preference is to develop using one of those IDE tools, but better to start integrating with more advanced tools, like the ones in the previous list.
 
-## CHAPTER ONE ##
-#### Writing our first go program ####
+## CHAPTER ONE
+#### Writing our first go program
 <br />
 **Introduction**
 
@@ -253,9 +300,10 @@ For our case-study we will use a github account as example:
 
   + our reference folder will be github.com/mygithubuser
   + *first step is to create the base folder*:
-  ```bash
-	mkdir -p $GOPATH/src/github.com/${mygithubuser}
-	```
+
+```bash
+mkdir -p ${GOPATH}/src/github.com/${mygithubuser}
+```
 
 The previously created folder will be our base path for all of our go works, we can consider it like an initialization of our universal go local source folder.
 
@@ -265,10 +313,9 @@ The source code is available in the folder first_program of this repo.
 To recall our example folder, we will create our local program base-path issuing:
 
 ```bash
-   mkdir -p $GOPATH/src/github.com/${mygithubuser}/first_program
-   cd !$
+mkdir -p ${GOPATH}/src/github.com/${mygithubuser}/first_program
+cd !$
 ```	 
-
 
 **Building and installing our first program**
 
@@ -276,59 +323,79 @@ After creating the folder and changing our directory to that path, let's put the
 Now the go code can be built and installed.
 To check if the program build correctly, it's enough to run
 
-+ `go build first_program.go`
+```bash
+go build first_program.go
+```
 
 This will produce our go binary in the current folder if everything compiles correctly and the reason is that we specified our first_program.go as a main package. In the next example, when writing packages, we'll see the build command only check the code and build it without producing executables.
 We can remove the first_program binary from our current local folder and proceed to install it.
 
-+ `rm -f first_program`
+```bash
+rm -f first_program
+```
 
 The command
 
-+ `go install first_program.go`
+```bash
+go install first_program.go
+```
 
-will compile our binary executable file in $GOPATH/bin and since this folder should have been added to the local path following the configuration steps, just calling it from the command line will execute our program.
+will compile our binary executable file in `${GOPATH}/bin` and since this folder should have been added to the local path following the configuration steps, just calling it from the command line will execute our program.
 
-#### Writing our first go module package ####
+#### Writing our first go module package
 <br />
 **Our first library**
 
 It's now time to write a package containing some functions to use it in our programs.
 For this scope, we'll create another folder in our main path.
 
-+ `mkdir -p $GOPATH/src/github.com/${mygithubuser}/string_utils`
-+ `cd !$`
+```bash
+mkdir -p ${GOPATH}/src/github.com/${mygithubuser}/string_utils
+cd !$
+```
 
 As usual, the file containing the source code for this example can be found in the string_utils folder of this project, so let's copy/edit reverse_string.go in the previously created directory.
 Let's check our package compiles without errors.
 
-+ `go build -a -v -x reverse_string.go`
+```bash
+go build -a -v -x reverse_string.go
+```
 
 If all operations perform successfully, we can now integrate our library containing the function *Reverse* from a regular program.
 
 **Using our library**
 
-Let's use the code inside the folder **using_string_utils**, specifically the program **revert_string_program.go**, building and running it. Checking the source, you can note that we're using our previously created library and the build process successfully links all the reference in one binary, saved in the $GOPATH/bin folder. In details, let's issue the following command:
+Let's use the code inside the folder **using_string_utils**, specifically the program **revert_string_program.go**, building and running it. Checking the source, you can note that we're using our previously created library and the build process successfully links all the reference in one binary, saved in the `${GOPATH}/bin` folder. In details, let's issue the following command:
 
-+ `go build -a -v -x revert_string_program.go`
+```bash
+go build -a -v -x revert_string_program.go
+```
 
 This should successfully build our program, and the executable will be produced in the same folder.
 We can now remove the revert_string_program binary from our current local folder and proceed to install it.
 
-+ `rm -f revert_string_program`
+```bash
+rm -f revert_string_program
+```
 
 To install it, let's run
 
-+ `go install revert_string_program.go`
+```bash
+go install revert_string_program.go
+```
 
-This install process will produce a binary in our current $GOBIN path, but the most interesting and good surprise is that if we check our pkg library path, now the compiler installed our static library automatically !
+This install process will produce a binary in our current ${GOBIN} path, but the most interesting and good surprise is that if we check our pkg library path, now the compiler installed our static library automatically !
 Check it running
 
-+ `ls $GOPATH/pkg/gccgo_linux_amd64/github.com/fsgura/testing-go`
+```bash
+ls ${GOPATH}/pkg/gccgo_linux_amd64/github.com/fsgura/testing-go
+```
 
-If you're not compiling go using gcc-go, check the next folder instead
+If you're not compiling your go artifacts having gcc-go installed, check the next folder instead
 
-+ `ls $GOPATH/pkg/linux_amd64/github.com/fsgura/testing-go`
+```bash
+ls ${GOPATH}/pkg/linux_amd64/github.com/fsgura/testing-go
+```
 
 *Note*: if you changed some folders in your current test, remember to update the previous references.
 
@@ -340,48 +407,52 @@ First of all, the most common practice to write unit tests for go programs and p
 
 Let's check the file in the current project folder string_utils called *reverse_string_test.go*, containing the unit tests for our package. After reading the comments and analyzing the code, let's see the test results, typing the following command in our command line:
 
-+ `go test reverse_string_test.go`
+```bash
+go test reverse_string_test.go
+```
 
 The output will require no additional comments if everything is configured fine.
 Something importantis the reference to the color ansi package, which is not present in the default installation of the go development environent; when adding a package, dependencies should be checked and eventually satisfied by downloading the referenced libraries.
 
 For our color library, the command to run is
 
-+ `go get github.com/mgutz/ansi`
+```bash
+go get github.com/mgutz/ansi
+```
 
 In the test file string_utils/reverse_string_test.go, a brief usage of the previosly installed color library has been used to obtain a colored output, when running the tests inside it in the terminal console window.
 
 *NOTE*: the unit test files follow a strict notation, which is needed by the go compiler to find them.
 
-*Every test has to be named like the program/library to test and its file-name has to end with a* **_test.go**
+*Every test has to be named like the program/library to test and its file-name has to end with a **_test.go**
 
 **If you reached this point you're at the end of your first go experience chapter !!!**
 
-*You've learned:
+**You've learned:**
 + how to write your first program and compile it
 + how to write your first library and compile it
-+ how to write a unit test*
++ how to write a unit test
 
-#### *that's a big first step !!!* ####
+#### *that's a big first step !!!*
 
-### **CONGRATULATIONS and ...** ###
+### **CONGRATULATIONS and ...**
 
 <center>**;-) GOing to see you again in the second chapter, don't miss that !!!**</center>
 
 
-## CHAPTER TWO ##
-#### Language Basics ####
+## CHAPTER TWO
+#### Language Basics
 <br />
 **Introduction**
 
 
-## CHAPTER THREE ##
-#### Advanced techniques and examples  ####
+## CHAPTER THREE
+#### Advanced techniques and examples
 <br />
 **Introduction**
 
 
-## CHAPTER FOUR ##
+## CHAPTER FOUR
 #### Our first RESTful API gateway
 <br />
 **Introduction**
@@ -394,7 +465,7 @@ As already mentioned when writing about the Language Basics and Advanced Techniq
 Let's go working on our local disk now ! Setting up correctly the project skeleton, as already marked in the whole current document, will give us the correct modular development and deployment of our final artifact !
 
 ```bash
-mkdir -p $GOPATH/src/github.com/${${mygithubuser}}/gorilla_based_rest_gateway
+mkdir -p ${GOPATH}/src/github.com/${${mygithubuser}}/gorilla_based_rest_gateway
 cd !$
 ```
 
@@ -412,25 +483,38 @@ go get github.com/gorilla/mux
 **Introduction**
 
 
-## CHAPTER SIX ##
-#### Interacting with docker ####
+## CHAPTER SIX
+#### Interacting with docker
 <br />
 **Introduction**
 
 
-## CHAPTER SEVEN ##
-#### Interacting with kafka ####
+## CHAPTER SEVEN
+#### Interacting with kafka
 <br />
 **Introduction**
 
 
-## CHAPTER EIGHT ##
-#### Interacting with zookeeper ####
+## CHAPTER EIGHT
+#### Interacting with zookeeper
 <br />
 **Introduction**
 
-## CHAPTER NINE ##
-#### Autheticating to Auth0, from basic to advanced ####
+
+## CHAPTER NINE
+#### Autheticating to Auth0, from basic to advanced
+<br />
+**Introduction**
+
+
+## CHAPTER TEN
+#### Interacting with Cassandra
+<br />
+**Introduction**
+
+
+## CHAPTER ELEVEN
+#### Interacting with Elasticsearch
 <br />
 **Introduction**
 
