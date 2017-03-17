@@ -1,10 +1,10 @@
-# == TESTING-GO ==
+#  TESTING-GO 
 
 ##### *A repository just to start a set of tests, using a base default go installation on Linux*
 
 *Step-by-step tutorial, starting from the go environment setup, going trough the first line of code, diving into packages and ending up with complex examples, commented and including unit-testing, to let the reader introduce him/herself to the awesome go programming language ecosystem.*
 
-### ==TABLE OF CONTENTS==
+### TABLE OF CONTENTS
 
 - #### [TESTING-GO](#testing-go)
 	- **[Introduction](#introduction)**
@@ -52,9 +52,9 @@
 
 ***
 
-### ==Introduction==
+### Introduction
 
-#### ==*Current ecosystem setup*==
+#### *Current ecosystem setup*
 
 |Current environment|                |
 | :-------------    | :------------- |
@@ -84,7 +84,7 @@ Fedora 25 provides a dnf set of packages for a ready to use go work-space.
 By the way, when installing the bundle, the environment variables are not fully configured.
 When starting with go and the related work-space setting, it's quite hard to find a good documentation to follow a step by step process.
 
-## ==STEP ONE==
+## STEP ONE
 
 #### Install Go and setup the OS environment
 
@@ -166,7 +166,7 @@ The options are:
 GORACE="log_path=/tmp/race/report strip_path_prefix=/my/go/sources/" go test -race
 ```
 
-## ==STEP TWO==
+## STEP TWO
 
 #### Install additional packages
 
@@ -227,7 +227,7 @@ using go get:
 go get github.com/nsf/gocode
 ```
 
-## ==STEP THREE==
+## STEP THREE
 #### Choose your IDE/Editor and install it
 
 There are several options to develop go code in a fast and productive way; depending on the programmer attitude and habits, a go program can be written in your favorite editor or also using an IDE. The following list includes some of the most common options.
@@ -281,7 +281,7 @@ There are several options to develop go code in a fast and productive way; depen
 
 <b>*Last considerations*</b>: Also Eclipse, NetBeans and JetBrains Idea have some additional plugins to integrate with the go development, although none of them has the full functionality to use debuggers and profiling tools. Feel free to test those integrations, especially if your preference is to develop using one of those IDE tools, but better to start integrating with more advanced tools, like the ones in the previous list.
 
-## ==CHAPTER ONE==
+## CHAPTER ONE
 
 ### Writing our first go program
 
@@ -441,7 +441,7 @@ ___
 
 ***
 
-## ==CHAPTER TWO==
+## CHAPTER TWO
 
 ### Language Basics
 
@@ -449,7 +449,7 @@ ___
 
 ***
 
-## ==CHAPTER THREE==
+## CHAPTER THREE
 
 ### Advanced techniques and examples
 
@@ -457,7 +457,7 @@ ___
 
 ***
 
-## ==CHAPTER FOUR==
+## CHAPTER FOUR
 
 ### Our first RESTful API gateway
 
@@ -486,7 +486,7 @@ go get github.com/gorilla/mux
 
 ***
 
-## ==CHAPTER FIVE==
+## CHAPTER FIVE
 
 ### Adding the Swagger 2.0 UI to our RESTful API gateway
 
@@ -494,7 +494,7 @@ go get github.com/gorilla/mux
 
 ***
 
-## ==CHAPTER SIX==
+## CHAPTER SIX
 
 ### Interacting with docker
 
@@ -502,7 +502,7 @@ go get github.com/gorilla/mux
 
 ***
 
-## ==CHAPTER SEVEN==
+## CHAPTER SEVEN
 
 ### Interacting with kafka
 
@@ -510,7 +510,7 @@ go get github.com/gorilla/mux
 
 ***
 
-## ==CHAPTER EIGHT==
+## CHAPTER EIGHT
 
 ### Interacting with zookeeper
 
@@ -518,7 +518,7 @@ go get github.com/gorilla/mux
 
 ***
 
-## ==CHAPTER NINE==
+## CHAPTER NINE
 
 ### Autheticating to Auth0, from basic to advanced
 
@@ -526,7 +526,7 @@ go get github.com/gorilla/mux
 
 ***
 
-## ==CHAPTER TEN==
+## CHAPTER TEN
 
 ### Interacting with Cassandra
 
@@ -534,7 +534,7 @@ go get github.com/gorilla/mux
 
 ***
 
-## ==CHAPTER ELEVEN==
+## CHAPTER ELEVEN
 
 ### Interacting with Elasticsearch
 
@@ -542,7 +542,7 @@ go get github.com/gorilla/mux
 
 ***
 
-## ==APPENDIX A==
+## APPENDIX A
 
 ### Useful links
 
@@ -589,7 +589,7 @@ Some videos a new-to-go programmer should watch at, they're both related to go c
 
 ***
 
-## ==APPENDIX B==
+## APPENDIX B
 
 ### LiteIDE on Fedora installation guidelines
 
@@ -602,15 +602,15 @@ Some videos a new-to-go programmer should watch at, they're both related to go c
 
 ***
 
-## ==Changelog==
+## Changelog
 
 ***
 
-## ==License==
+## License
 
 ***
 
-## ==Authors and contributors==
+## Authors and contributors
 
 Project initially started by:
 * Fabrizio Sgura  <fsgura@psl.com.co>
