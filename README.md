@@ -1,79 +1,76 @@
-# TESTING-GO
-
+# == TESTING-GO ==
 
 ##### *A repository just to start a set of tests, using a base default go installation on Linux*
-<br />
+
 *Step-by-step tutorial, starting from the go environment setup, going trough the first line of code, diving into packages and ending up with complex examples, commented and including unit-testing, to let the reader introduce him/herself to the awesome go programming language ecosystem.*
 
-### TABLE OF CONTENTS
+### ==TABLE OF CONTENTS==
 
-- [TESTING-GO](#testing-go)  *(top of this page)*
-	- [Introduction](#introduction)
-		- [Current Ecosystem Setup](#current-ecosystem-setup)
+- #### [TESTING-GO](#testing-go)
+	- **[Introduction](#introduction)**
+    	- [Current Ecosystem Setup](#current-ecosystem-setup)
 		- [NOTE](#note)
 		- [STEP ONE](#step-one)
-			- [Install Go and setup the OS environment](#install-go-and-setup-the-os-environment)
-			- [Note on the GORACE environment variable](#note-on-the-gorace-environment-variable)
+			- *[Install Go and setup the OS environment](#install-go-and-setup-the-os-environment)*
+			- *[Note on the GORACE environment variable](#note-on-the-gorace-environment-variable)*
 		- [STEP TWO](#step-two)
-			- [Install additional packages](#install-additional-packages)
+			- *[Install additional packages](#install-additional-packages)*
 		- [STEP THREE](#step-three)
-			- [Choose your IDE/Editor and install it](#choose-your-ide-editor-and-install-it)
-	- [CHAPTER ONE - first steps in go](#chapter-one)
+			- *[Choose your IDE/Editor and install it](#choose-your-ide-editor-and-install-it)*
+	- **[CHAPTER ONE - first steps in go](#chapter-one)**
 		- [Writing our first go program](#writing-our-first-go-program)
-			- [Introduction](#Introduction)
-			- [Setting path and code](#setting-path-and-code)
-			- [Building and installing our first program](#building-adn-installing-our-first-program)
+			- *[Introduction](#Introduction)*
+			- *[Setting path and code](#setting-path-and-code)*
+			- *[Building and installing our first program](#building-adn-installing-our-first-program)*
 		- [Writing our first go module package](#writing-our-first-go-module-package)
-			- [Our first library](#our-first-library)
-			- [Using our library](#using-our-library)
-			- [Unit Testing](#and-now-unit-testing-why-not)
-		- [You've learned](#you-ve-learned)
-	- [CHAPTER TWO - language basics](#chapter-two)
-		- [You've learned](#you-ve-learned)
-	- [CHAPTER THREE - advanced techniques and examples](#chapter-three)
-		- [You've learned](#you-ve-learned)
-	- [CHAPTER FOUR - our-first-restful-api-gateway](#chapter-four)
-		- [You've learned](#you-ve-learned)
-	- [CHAPTER FIVE - Adding the Swagger 2.0 UI to our RESTful API gateway](#chapter-five)
-		- [You've learned](#you-ve-learned)
-	- [CHAPTER SIX - Interacting with docker](#chapter-six)
-		- [You've learned](#you-ve-learned)
-	- [CHAPTER SEVEN - Interacting with kafka](#chapter-seven)
-		- [You've learned](#you-ve-learned)
-	- [CHAPTER EIGHT - Interacting with zookeeper](#chapter-eight)
-		- [You've learned](#you-ve-learned)
-	- [CHAPTER NINE - Authenticating to Auth0, from basic to advanced](#chapter-nine)
-		- [You've learned](#you-ve-learned)
-	- [CHAPTER TEN - Interacting with Cassandra](#chapter-ten)
-		- [You've learned](#you-ve-learned)
-	- [CHAPTER ELEVEN - Interacting with Elasticsearch](#chapter-eleven)
-		- [You've learned](#you-ve-learned)
-  - [APPENDIX A](#appendix-a)
-  - [APPENDIX B](#appendix-b)
+			- *[Our first library](#our-first-library)*
+			- *[Using our library](#using-our-library)*
+			- *[Unit Testing](#and-now-unit-testing-why-not)*
+		- [After stage one, you know now](#you-ve-learned)
+	- **[CHAPTER TWO - language basics](#chapter-two)**
+		- [After stage two, you know now](#you-ve-learned)
+	- **[CHAPTER THREE - advanced techniques and examples](#chapter-three)**
+		- [After stage three, you know now](#you-ve-learned)
+	- **[CHAPTER FOUR - our-first-restful-api-gateway](#chapter-four)**
+		- [After stage four, you know now](#you-ve-learned)
+	- **[CHAPTER FIVE - Adding the Swagger 2.0 UI to our RESTful API gateway](#chapter-five)**
+		- [After stage five, you know now](#you-ve-learned)
+	- **[CHAPTER SIX - Interacting with docker](#chapter-six)**
+		- [After stage six, you know now](#you-ve-learned)
+	- **[CHAPTER SEVEN - Interacting with kafka](#chapter-seven)**
+		- [After stage seven, you know now](#you-ve-learned)
+	- **[CHAPTER EIGHT - Interacting with zookeeper](#chapter-eight)**
+		- [After stage eight, you know now](#you-ve-learned)
+	- **[CHAPTER NINE - Authenticating to Auth0, from basic to advanced](#chapter-nine)**
+		- [After stage nine, you know now](#you-ve-learned)
+	- **[CHAPTER TEN - Interacting with Cassandra](#chapter-ten)**
+		- [After stage ten, you know now](#you-ve-learned)
+	- **[CHAPTER ELEVEN - Interacting with Elasticsearch](#chapter-eleven)**
+		- [After stage eleven, you know now](#you-ve-learned)
+    - **[APPENDIX A](#appendix-a)**
+    - **[APPENDIX B](#appendix-b)**
 
+***
 
-### Introduction
+### ==Introduction==
 
-#### *Current ecosystem setup*
+#### ==*Current ecosystem setup*==
 
-> |Current environment|                |
-  | :-------------    | :------------- |
-  |**Testing OS**     | *Linux*        |
-  |**Distribution**   | *Fedora 25*    |
-  |**Work-space**     | *Go 1.7*       |
-  |**CPU Arch**       | *x86_64*       |
-
+|Current environment|                |
+| :-------------    | :------------- |
+|**Testing OS**     | *Linux*        |
+|**Distribution**   | *Fedora 25*    |
+|**Work-space**     | *Go 1.7*       |
+|**CPU Arch**       | *x86_64*       |
 
 installed issuing
-
 
 ```bash
 dnf -y install golang golang-bin golang-docs golang-misc golang-shared golang-src golang-tests
 ```
-
 from the standard fedora repo.
 
-<u>Additional and useful:</u> the package including go for gcc should be installed, since later on it will be needed from other packages and tools to correctly integrate the code when c/c++ libraries are bundled in a go project. In most cases the bundled go compiler will produce libraries without needing other additional products, but the performance of the compiled artifactory can be lower if gcc compiler and related environment variables optimization are not used when compiling under Unix/Linux Linux.
+**Additional and useful info**: the package including go for gcc should be installed, since later on it will be needed from other packages and tools to correctly integrate the code when c/c++ libraries are bundled in a go project. In most cases the bundled go compiler will produce libraries without needing other additional products, but the performance of the compiled artifactory can be lower if gcc compiler and related environment variables optimization are not used when compiling under Unix/Linux Linux.
 
 In Fedora
 
@@ -81,13 +78,14 @@ In Fedora
 dnf -y install gcc-go
 ```
 
-#### <u>NOTE</u>
+#### **NOTE**
 
 Fedora 25 provides a dnf set of packages for a ready to use go work-space.
 By the way, when installing the bundle, the environment variables are not fully configured.
 When starting with go and the related work-space setting, it's quite hard to find a good documentation to follow a step by step process.
 
-## STEP ONE
+## ==STEP ONE==
+
 #### Install Go and setup the OS environment
 
 An initial look at the packages file-system structure can give and idea of how the go provided tool-set has been structured.
@@ -130,7 +128,7 @@ The environment variable `PATH` by default in every Unix OS settings includes th
 
 The folder where all go sources will be written, developed and tested will be `/usr/local/git/go` to easily maintain the relationship with local and remote repositories.
 
-The following table will resume the new updated environment variables values:
+The following table resumes the new updated environment variables values:
 
 |        |                   |
 |--------|:-----------------:|
@@ -160,7 +158,7 @@ The options are:
 |log_path         |stderr       |The race detector writes its report to a file named log_path.pid. The  special names stdout and stderr cause reports to be written to standard output and standard error, respectively.|
 |exitcode         |66           |The exit status to use when exiting after a detected race.         |
 |strip_path_prefix|"" *empty*   |Strip this prefix from all reported file paths, to make reports more concise.|
-|history_size     |1            |The per-goroutine memory access history is 32K * 2**history_size elements. Increasing this value can avoid a "failed to restore the stack" error in reports, at the cost of increased memory usage.|
+|history_size     |1            |The per-goroutine memory access history is 32K \* 2 \*\*history_size elements. Increasing this value can avoid a "failed to restore the stack" error in reports, at the cost of increased memory usage.|
 |halt_on_error    |0            |Controls whether the program exits after reporting first data race.|
 
 *Example:*
@@ -168,7 +166,8 @@ The options are:
 GORACE="log_path=/tmp/race/report strip_path_prefix=/my/go/sources/" go test -race
 ```
 
-## STEP TWO
+## ==STEP TWO==
+
 #### Install additional packages
 
 Fedora provides additional packages that are useful to complete our first setup of go.
@@ -228,7 +227,7 @@ using go get:
 go get github.com/nsf/gocode
 ```
 
-## STEP THREE
+## ==STEP THREE==
 #### Choose your IDE/Editor and install it
 
 There are several options to develop go code in a fast and productive way; depending on the programmer attitude and habits, a go program can be written in your favorite editor or also using an IDE. The following list includes some of the most common options.
@@ -260,7 +259,7 @@ There are several options to develop go code in a fast and productive way; depen
   + Link to sourceforge LiteIDE site:
     - http://sourceforge.net/projects/liteide/files
   + Link to LiteIDE github:
-    - https://github.com/visualfc/liteide    
+    - https://github.com/visualfc/liteide
 <br />*In the [APPENDIX B](#appendix_b) of this README document, there's a fast and brief HOW-TO to install LiteIDE in Fedora, having it up and running with a useful desktop icon and rapid access.*
 
 
@@ -282,24 +281,25 @@ There are several options to develop go code in a fast and productive way; depen
 
 <b>*Last considerations*</b>: Also Eclipse, NetBeans and JetBrains Idea have some additional plugins to integrate with the go development, although none of them has the full functionality to use debuggers and profiling tools. Feel free to test those integrations, especially if your preference is to develop using one of those IDE tools, but better to start integrating with more advanced tools, like the ones in the previous list.
 
-## CHAPTER ONE
-#### Writing our first go program
-<br />
-**Introduction**
+## ==CHAPTER ONE==
+
+### Writing our first go program
+
+#### **Introduction**
 
 Before start coding, we have to let our impatience wait a little bit more, because the go folder structures when developing is a point that has to be considered to avoid issues later on, especially when writing libraries, packages and additional modular components that will be required in our projects. Also the way of importing and using third-party libraries and modules requires the knowledge of this folder structure.
 
 Let's start underlining the git repository that will be hosting our code. It's not mandatory to let our code be public, but generally the next guidelines are self-explanatory. Spend some minutes to learn the next points, and all of these rules will be a fundamental basis for your go development in the next future.
 
 
-**Setting path and code**
+#### **Setting path and code**
 
 For our case-study we will use a github account as example:
 
 * let's suppose you have an account named "mygithubuser" (but better if you change it with something existing on the git server domain of your choice)
 
-  + our reference folder will be github.com/mygithubuser
-  + *first step is to create the base folder*:
+  + *our reference folder will be github.com/mygithubuser*
+  + *first step is creating the base folder*:
 
 ```bash
 mkdir -p ${GOPATH}/src/github.com/${mygithubuser}
@@ -315,9 +315,9 @@ To recall our example folder, we will create our local program base-path issuing
 ```bash
 mkdir -p ${GOPATH}/src/github.com/${mygithubuser}/first_program
 cd !$
-```	 
+```
 
-**Building and installing our first program**
+#### **Building and installing our first program**
 
 After creating the folder and changing our directory to that path, let's put the go program inside it.
 Now the go code can be built and installed.
@@ -342,9 +342,9 @@ go install first_program.go
 
 will compile our binary executable file in `${GOPATH}/bin` and since this folder should have been added to the local path following the configuration steps, just calling it from the command line will execute our program.
 
-#### Writing our first go module package
-<br />
-**Our first library**
+### **Writing our first go module package**
+
+#### **Our first library**
 
 It's now time to write a package containing some functions to use it in our programs.
 For this scope, we'll create another folder in our main path.
@@ -365,7 +365,7 @@ If all operations perform successfully, we can now integrate our library contain
 
 **Using our library**
 
-Let's use the code inside the folder **using_string_utils**, specifically the program **revert_string_program.go**, building and running it. Checking the source, you can note that we're using our previously created library and the build process successfully links all the reference in one binary, saved in the `${GOPATH}/bin` folder. In details, let's issue the following command:
+Let's use the code inside the folder ``using_string_utils``, specifically the program `revert_string_program.go` building and running it. Checking the source, you can note that we're using our previously created library and the build process successfully links all the reference in one binary, saved in the `${GOPATH}/bin` folder. In details, let's issue the following command:
 
 ```bash
 go build -a -v -x revert_string_program.go
@@ -428,40 +428,47 @@ In the test file string_utils/reverse_string_test.go, a brief usage of the previ
 
 **If you reached this point you're at the end of your first go experience chapter !!!**
 
-**You've learned:**
+**On stage one, you know now**
 + how to write your first program and compile it
 + how to write your first library and compile it
 + how to write a unit test
 
 #### *that's a big first step !!!*
-
-### **CONGRATULATIONS and ...**
+___
+#### **CONGRATULATIONS and ...**
 
 <center>**;-) GOing to see you again in the second chapter, don't miss that !!!**</center>
 
+***
 
-## CHAPTER TWO
-#### Language Basics
-<br />
-**Introduction**
+## ==CHAPTER TWO==
 
+### Language Basics
 
-## CHAPTER THREE
-#### Advanced techniques and examples
-<br />
-**Introduction**
+#### **Introduction**
 
+***
 
-## CHAPTER FOUR
-#### Our first RESTful API gateway
-<br />
-**Introduction**
+## ==CHAPTER THREE==
+
+### Advanced techniques and examples
+
+#### **Introduction**
+
+***
+
+## ==CHAPTER FOUR==
+
+### Our first RESTful API gateway
+
+#### **Introduction**
 
 It's time to put our hands working on the so common and known REST. A main difference between Go
 and other languages to build this kind of service is ... that if the developer strictly follows an ordered and well sorted guideline related to folder structure, packages keeping them as small as possible and comments when the project is a distributed one everything in Go is really more simple, more effective and faster, due to its binary executables.
 As already mentioned when writing about the Language Basics and Advanced Techniques, the good practice using variables and pointers, slices and structs, and all the best ways to correctly define functions and resources consumption will produce a top production-performance program for each case.
 
 **File-system setup**
+
 Let's go working on our local disk now ! Setting up correctly the project skeleton, as already marked in the whole current document, will give us the correct modular development and deployment of our final artifact !
 
 ```bash
@@ -477,51 +484,67 @@ If you don't have it already in your go packages folder, it's time to go for it 
 go get github.com/gorilla/mux
 ```
 
-## CHAPTER FIVE
-#### Adding the Swagger 2.0 UI to our RESTful API gateway
-<br />
-**Introduction**
+***
 
+## ==CHAPTER FIVE==
 
-## CHAPTER SIX
-#### Interacting with docker
-<br />
-**Introduction**
+### Adding the Swagger 2.0 UI to our RESTful API gateway
 
+#### **Introduction**
 
-## CHAPTER SEVEN
-#### Interacting with kafka
-<br />
-**Introduction**
+***
 
+## ==CHAPTER SIX==
 
-## CHAPTER EIGHT
-#### Interacting with zookeeper
-<br />
-**Introduction**
+### Interacting with docker
 
+#### **Introduction**
 
-## CHAPTER NINE
-#### Autheticating to Auth0, from basic to advanced
-<br />
-**Introduction**
+***
 
+## ==CHAPTER SEVEN==
 
-## CHAPTER TEN
-#### Interacting with Cassandra
-<br />
-**Introduction**
+### Interacting with kafka
 
+#### **Introduction**
 
-## CHAPTER ELEVEN
-#### Interacting with Elasticsearch
-<br />
-**Introduction**
+***
 
+## ==CHAPTER EIGHT==
 
-## APPENDIX A
-#### Useful links
+### Interacting with zookeeper
 
+### **Introduction**
+
+***
+
+## ==CHAPTER NINE==
+
+### Autheticating to Auth0, from basic to advanced
+
+#### **Introduction**
+
+***
+
+## ==CHAPTER TEN==
+
+### Interacting with Cassandra
+
+#### **Introduction**
+
+***
+
+## ==CHAPTER ELEVEN==
+
+### Interacting with Elasticsearch
+
+#### **Introduction**
+
+***
+
+## ==APPENDIX A==
+
+### Useful links
 
 The following list has been written to give the programmer a fast reference for the basic go official resources available on the internet.
 
@@ -564,9 +587,11 @@ Some videos a new-to-go programmer should watch at, they're both related to go c
 * [http://www.youtube.com/watch?v=f6kdp27TYZs](http://www.youtube.com/watch?v=f6kdp27TYZs)
   + Go concurrency patterns
 
+***
 
-## APPENDIX B
-#### LiteIDE on Fedora installation guidelines
+## ==APPENDIX B==
+
+### LiteIDE on Fedora installation guidelines
 
   To install LiteIDE on Fedora, the fastest and easiest way is to checkout to binaries, set the desktop link and start using the integrated development environment. Compiling LiteIDE from source is not a goal of the current docuemntation, although it's well documented reading the instructions on the author's site and github repository.
 
@@ -575,13 +600,17 @@ Some videos a new-to-go programmer should watch at, they're both related to go c
 
   From your download location, extract the downloaded file to a folder of your choice, should be in /opt main path. A working example for the current x31 release of LiteIDE can be found in the scripts folder of this repo; just run **liteide_fedora_setup.sh** and hit the desktop icon to test your final installation.
 
+***
 
+## ==Changelog==
 
-## Changelog
+***
 
-## License
+## ==License==
 
-## Authors and contributors
+***
+
+## ==Authors and contributors==
 
 Project initially started by:
 * Fabrizio Sgura  <fsgura@psl.com.co>
