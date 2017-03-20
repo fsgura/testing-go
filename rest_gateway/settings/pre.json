@@ -1,0 +1,5 @@
+{
+  "PrivateKeyPath": "C:\\Users\\xiloss\\Go\\src\\github.com\\fsgura\\testing-go\\rest_gateway\\settings\\keys\\private_key",
+  "PublicKeyPath": "C:\\Users\\xiloss\\Go\\src\\github.com\\fsgura\\testing-go\\rest_gateway\\settings\\keys\\public_key.pub",
+  "JWTExpirationDelta": 72
+}

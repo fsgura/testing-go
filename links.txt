@@ -1,0 +1,20 @@
+noauth_router
+https://dzone.com/articles/authentication-in-golang-with-jwts
+
+auth0
++ https://github.com/auth0-blog/auth0-golang-jwt/blob/master/main.go
+https://github.com/auth0-samples/auth0-golang-web-api/tree/master/00-Starter-Seed
+https://github.com/auth0-samples/auth0-golang-web-app/tree/master/01-Login/routes/home
+https://auth0.com/docs/quickstart/backend/golang
+https://auth0.com/blog/authentication-in-golang/
+https://auth0.com/docs/quickstart/webapp/golang
+
+
+https://github.com/potatogopher/jwt-go-example/blob/master/server.go
+
+rest_gateway
+http://blog.brainattica.com/restful-json-api-jwt-go/
+https://github.com/brainattica/golang-jwt-authentication-api-sample/tree/master/api/parameters
+
+
++ http://www.giantflyingsaucer.com/blog/?p=5994
