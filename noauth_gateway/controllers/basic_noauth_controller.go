@@ -8,17 +8,17 @@ import (
 )
 
 var Healthy = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
-	w.Write([]byte("OK"))
+	w.Write([]byte("OK, this shit works !"))
 })
 
 /* We will create our catalog of VR experiences and store them in a slice. */
 var books = []services.Book {
-	services.Book{Id: 1, Title: "Hover Shooters", Slug: "hover-shooters", Description : "Shoot your way to the top on 14 different hoverboards"},
-	services.Book{Id: 2, Title: "Ocean Explorer", Slug: "ocean-explorer", Description : "Explore the depths of the sea in this one of a kind underwater experience"},
-	services.Book{Id: 3, Title: "Dinosaur Park", Slug : "dinosaur-park", Description : "Go back 65 million years in the past and ride a T-Rex"},
-	services.Book{Id: 4, Title: "Cars VR", Slug : "cars-vr", Description: "Get behind the wheel of the fastest cars in the world."},
-	services.Book{Id: 5, Title: "Robin Hood", Slug: "robin-hood", Description : "Pick up the bow and arrow and master the art of archery"},
-	services.Book{Id: 6, Title: "Real World VR", Slug: "real-world-vr", Description : "Explore the seven wonders of the world in VR"},
+	{Id: 1, Title: "Hover Shooters", Slug: "hover-shooters", Description : "Shoot your way to the top on 14 different hoverboards"},
+	{Id: 2, Title: "Ocean Explorer", Slug: "ocean-explorer", Description : "Explore the depths of the sea in this one of a kind underwater experience"},
+	{Id: 3, Title: "Dinosaur Park", Slug : "dinosaur-park", Description : "Go back 65 million years in the past and ride a T-Rex"},
+	{Id: 4, Title: "Cars VR", Slug : "cars-vr", Description: "Get behind the wheel of the fastest cars in the world."},
+	{Id: 5, Title: "Robin Hood", Slug: "robin-hood", Description : "Pick up the bow and arrow and master the art of archery"},
+	{Id: 6, Title: "Real World VR", Slug: "real-world-vr", Description : "Explore the seven wonders of the world in VR"},
 }
 
 /* The products handler will be called when the user makes a GET request to the /products endpoint.

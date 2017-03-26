@@ -1,4 +1,4 @@
-#  TESTING-GO 
+#  TESTING-GO
 
 ##### *A repository just to start a set of tests, using a base default go installation on Linux*
 

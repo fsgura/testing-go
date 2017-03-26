@@ -18,3 +18,169 @@ https://github.com/brainattica/golang-jwt-authentication-api-sample/tree/master/
 
 
 + http://www.giantflyingsaucer.com/blog/?p=5994
+
+Modified go playground to execute code in sandbox
+https://github.com/xiam/go-playground
+
+Restful simple but effective and well organized
+https://thenewstack.io/make-a-restful-json-api-go/
+
+Simple and effective example on restful api in go
+https://www.thepolyglotdeveloper.com/2016/07/create-a-simple-restful-api-with-golang/
+
+Basic json pretty printer (no arguments)
+https://gist.github.com/jd-boyd/119b290f881a0148b515
+
+Good http router
+https://github.com/julienschmidt/httprouter
+
+Restful API using Martini
+https://0value.com/build-a-restful-API-with-Martini
+
+Query strings with parameters using gin gonic restful library
+https://github.com/gin-gonic/gin#custom-middleware
+
+An example using alice and selectors for multiple queries
+https://github.com/rs/rest-layer/blob/master/examples/selectors/main.go
+
+An example on query parameters to try
+https://medium.com/@IndianGuru/consuming-json-apis-with-go-d711efc1dcf9#.158tl0r51
+
+Interesting part of a rest api library on requests
+https://github.com/ant0ine/go-json-rest/blob/master/rest/request.go
+
+From auth0 complex example, including UI
+https://dzone.com/articles/authentication-in-golang-with-jwts
+https://auth0.com/blog/authentication-in-golang/
+
+Basic quickstart from auth0
+https://auth0.com/docs/quickstart/backend/golang
+
+Auth0 samples
+https://github.com/auth0-samples/auth0-golang-web-app/blob/master/01-Login/routes/home/home.go
+https://github.com/auth0-samples/auth0-golang-web-api/tree/master/00-Starter-Seed
+https://github.com/auth0-blog/auth0-golang-jwt
+https://auth0.com/docs/quickstart/webapp/golang
+negroni and martini
+https://github.com/auth0/go-jwt-middleware
+
+very basic on jwt with go
+https://sendgrid.com/blog/tokens-tokens-intro-json-web-tokens-jwt-go/
+
+Good example using negroni and gorilla with priv/pubkeys
+https://github.com/potatogopher/jwt-go-example/blob/master/server.go
+
+Good example on authentication
+http://blog.brainattica.com/restful-json-api-jwt-go/
+https://github.com/brainattica/golang-jwt-authentication-api-sample/blob/master/api/parameters/auth.go
+
+Example on RS256
+http://www.giantflyingsaucer.com/blog/?p=5994
+
+Very good example on rest api in go (movies)
+http://www.giantflyingsaucer.com/blog/?p=5635
+
+step by step rest service 3 parts
+https://stevenwhite.com/building-a-rest-service-with-golang-1/
+https://stevenwhite.com/building-a-rest-service-with-golang-2/
+https://stevenwhite.com/building-a-rest-service-with-golang-3/
+https://github.com/swhite24/go-rest-tutorial
+
+Well organized example
+http://blog.smartbear.com/web-development/how-to-build-a-web-service-in-5-minutes-with-go/
+
+Swagger links for go
+https://github.com/go-swagger/go-swagger
+https://goswagger.io/
+https://goswagger.io/generate/client.html
+https://swagger.io/getting-started/
+https://petstore.swagger.io/#!/user/createUser
+
+
+collection of resources and docs for go
+https://github.com/avelino/awesome-go
+
+base restful example
+http://ernestmicklei.com/2012/11/go-restful-first-working-example/
+good library
+https://github.com/emicklei/go-restful
+https://github.com/emicklei/go-restful-swagger12
+mongo rest with go
+https://github.com/emicklei/mora
+logstash go fork
+https://github.com/emicklei/glog
+code examples
+http://ernestmicklei.com/2012/11/methods-as-objects-in-go/
+http://ernestmicklei.com/2012/11/first-class-functions-in-go/
+http://ernestmicklei.com/2012/11/go-restful-api-design/
+go tcp proxy to simulate connection problems
+https://github.com/emicklei/zazkia
+basic bitbucket client
+https://github.com/emicklei/go-bitbucket
+
+gin-gonic resources nice restful suite
+https://github.com/gin-gonic/gin
+https://github.com/gin-gonic/contrib
+https://github.com/gin-gonic/httprouter
+https://semaphoreci.com/community/tutorials/building-go-web-applications-and-microservices-using-gin
+Super
+https://semaphoreci.com/community/tutorials/test-driven-development-of-go-web-applications-with-gin
+https://semaphoreci.com/community/tutorials/building-and-testing-a-rest-api-in-go-with-gorilla-mux-and-postgresql
+https://github.com/demo-apps/go-gin-app
+https://github.com/madhums/go-gin-mgo-demo
+
+simple api in go sqlite
+http://phalt.co/a-simple-api-in-go/
+https://github.com/phalt/website/blob/master/main.go
+movies loader in sqlite
+https://github.com/bamx23/movies-loader
+
+
+https://medium.com/@etiennerouzeaud/how-to-create-a-basic-restful-api-in-go-c8e032ba3181#.gqm9mgis2
+https://medium.com/@thedevsaddam/build-restful-api-service-in-golang-using-gin-gonic-framework-85b1a6e176f3#.1fy3k8fpg
+
+
+
+https://dinosaurscode.xyz/go/2016/06/17/golang-jwt-authentication/
+https://github.com/dgrijalva/jwt-go
+
+kafka library for go
+https://github.com/Shopify/sarama
+https://github.com/confluentinc/confluent-kafka-go
+https://github.com/elodina/go_kafka_client
+https://es.slideshare.net/charmalloc/developing-with-the-go-client-for-apache-kafka
+https://github.com/elodina/go_kafka_client
+
+SUPER TUTORIAL
+https://www.tutorialspoint.com/go/go_range.htm
+
+actors in go
+https://github.com/AsynkronIT/protoactor-go
+
+go and cassandra
+https://github.com/gocql/gocql
+https://godoc.org/github.com/gocql/gocql#Session
+https://academy.datastax.com/resources/getting-started-apache-cassandra-and-go
+https://github.com/kristoiv/gocqltable
+
+elasticsearch
+bulkindexing
+https://github.com/miku/esbulk
+Appliances dns sniffer very nice
+http://blog.davidvassallo.me/2016/11/03/simple-dns-sniffer-in-golang/
+http://www.devdungeon.com/content/packet-capture-injection-and-analysis-gopacket
+client
+https://github.com/OwnLocal/goes/blob/develop/example_test.go
+https://github.com/olivere/elastic
+https://github.com/mattbaird/elastigo
+utilities
+indexcopier
+https://github.com/lytics/escp
+https://github.com/mvmaasakkers/elasticsearch-export
+es to csv
+https://github.com/NeowayLabs/es-export
+
+
+
+crazy and insane implementation of bash actors !
+https://github.com/asfarley/bashactors

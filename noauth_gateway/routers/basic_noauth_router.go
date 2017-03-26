@@ -14,7 +14,7 @@ func SetNoAuthRoutes(router *mux.Router) *mux.Router {
 	// We will setup our server so we can serve static assets like images, css from the /static/{file} route
 	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./noauth_gateway/html/content_static/"))))
 
-
+	router.Handle("/not_implemented", controllers.NotImplemented).Methods("GET")
 	router.Handle("/status",controllers.Healthy).Methods("GET")
 
 	router.Handle("/books", controllers.BooksHandler).Methods("GET")
